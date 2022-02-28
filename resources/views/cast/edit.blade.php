@@ -27,7 +27,7 @@
         @enderror
         <div class="mb-3">
             <label>Biodata</label>
-            <textarea name="bio" class="form-control" rows="3">{{$cast->bio}}</textarea>
+            <input type="file" class="form-control" name="bio">
         </div>
         @error('bio')
             <div class="alert alert-danger">{{ $message }}</div>
