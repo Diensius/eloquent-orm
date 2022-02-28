@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form action="/cast" method="POST">
+    <form action="/cast" method="POST" enctype="multipart/form-data"> <!-- enctype supaya bisa upload file-->
         @csrf
         <h1>Tambah Cast Baru</h1>
 
@@ -25,7 +25,7 @@
         @enderror
         <div class="mb-3">
             <label>Biodata</label>
-            <textarea name="bio" class="form-control" rows="3"></textarea>
+            <input type="file" class="form-control" name="bio">
         </div>
         @error('bio')
             <div class="alert alert-danger">{{ $message }}</div>
