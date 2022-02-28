@@ -41,6 +41,7 @@ class CastController extends Controller
         // Setelah semua fungsi kita tinggal redirect & return
         return redirect('/cast');
 
+        // Query builder
         // Fungsi masukkan ke database
         /*DB::table('cast')->insert(
             [
@@ -53,6 +54,7 @@ class CastController extends Controller
 
     public function index()
     {
+        // Query builder
         //$cast = DB::table('cast')->get();
  
         $cast = Cast::all();
@@ -61,6 +63,7 @@ class CastController extends Controller
 
     public function show($id)
     {
+        // Query builder
         //$cast = DB::table('cast')->where('id', $id)->first();
 
         $cast = Cast::findorfail($id);
@@ -69,6 +72,7 @@ class CastController extends Controller
 
     public function edit($id)
     {
+        // Query builder
         //$cast = DB::table('cast')->where('id', $id)->first();
 
         $cast = Cast::all();
@@ -118,6 +122,7 @@ class CastController extends Controller
         // Setelah semua fungsi kita tinggal redirect & return
         return redirect('/cast');
 
+        // Query builder
         /*DB::table('cast')
             ->where('id', $id)
             ->update(
@@ -131,8 +136,14 @@ class CastController extends Controller
 
     public function destroy($id)
     {
-        $cast = DB::table('cast')->where('id', '=', $id)->delete();
+        // Query builder
+        //$cast = DB::table('cast')->where('id', '=', $id)->delete();
 
+        $cast = Cast::findorfail($id);
+        $path = "image/";
+        File::delete($path . $cast->bio);
+        $cast->delete();
+        
         return redirect('/cast');
     }
     

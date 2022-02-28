@@ -11,14 +11,14 @@
 
         <div class="mb-3">
             <label>Nama</label>
-            <input type="text" name="nama" class="form-control" placeholder="Masukkan nama disini...">
+            <input type="text" name="nama" class="form-control">
         </div>
         @error('nama')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <div class="mb-3">
             <label>Umur</label>
-            <input type="text" name="umur" class="form-control" placeholder="Masukkan umur disini...">
+            <input type="text" name="umur" class="form-control">
         </div>
         @error('umur')
             <div class="alert alert-danger">{{ $message }}</div>

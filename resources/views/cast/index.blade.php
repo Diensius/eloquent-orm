@@ -26,11 +26,11 @@
                 <td>{{$item -> umur}}</td> <!-- manggil database umur -->
                 <td><img src="{{asset('image/'.$item->bio)}}" class="img-size-50"></td> <!-- tampilkan gambar -->
                 <td>
-                    <form action="{{route('cast/destroy', $item->id)}}" method="POST">
+                    <form action="/cast/{{$item->id}}" method="POST">
                         @csrf
                         @method('delete')
-                        <a href="{{route('cast/show', $item->id)}}" class="btn btn-info btn-sm">Detail</a>
-                        <a href="{{route('cast/edit', $item->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/cast/{{$item->id}}" class="btn btn-info btn-sm">Detail</a>
+                        <a href="/cast/{{$item->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                         <input type="submit" class="btn btn-danger btn-sm" value="Delete">
                     </form>
                 </td>
